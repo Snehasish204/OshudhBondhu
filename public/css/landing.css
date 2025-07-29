@@ -200,7 +200,7 @@ button:hover::before {
 
 /*left part */
 .about {
-  background-image: url('/assets/images/femlae_doctor.png');
+  background-image: url('/assets/images/youngMaleDoctor.jpg');
   background-size: contain;
   background-repeat: no-repeat;
   background-position: left bottom;
