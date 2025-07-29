@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <!-- <%- include('../partials/header') %> -->
+  <link rel="stylesheet" href="/css/admincontroll.css">
+  <title>Manage Orders - Admin</title>
+</head>
+
+<body>
+  <nav class="navbar">
+    <div class="logo"><img src="/assets/images/ourLogo.jpg" alt="companyLogo" height="50px">
+      <div class="companyName">OshudhBondhu</div>
+    </div>
+
+    <ul class="nav-links">
+      <li><a href="/admin/dashboard">Dashboard</a></li>
+        <li><a href="/admin/orders">All Orders</a></li>
+        <li><a href="/logout">Logout</a></li>
+    </ul>
+  </nav>
+  <div class="mainCont">
+    <h2 id="heading">All Orders 🧾</h2>
+
+    <% if (orders && orders.length> 0) { %>
+      <div class="orders-list">
+        <% orders.forEach(order=> { %>
+          <div class="order-card">
+            <h3>
+              Ordered by: <%= order.user ? order.user.name : 'Unknown' %>
+            </h3>
+
+            <ul>
+              <% order.medicines.forEach(item=> { %>
+                <li>
+                  <strong>
+                    <%= item.medicine ? item.medicine.name : 'Unknown Medicine' %>
+                  </strong>
+                  – Quantity: <%= item.quantity %>
+                </li>
+                <% }) %>
+            </ul>
+
+            <p><strong>Status:</strong>
+              <%= order.status %>
+            </p>
+            <p><strong>Expected Delivery:</strong>
+              <%= order.expectedDelivery ? order.expectedDelivery.toDateString() : 'Not set' %>
+            </p>
+
+            <form action="/admin/orders/<%= order._id %>/update" method="POST" class="update-form">
+              <label for="status">Status:</label>
+              <select name="status">
+                <option value="Pending" <%=order.status==='Pending' ? 'selected' : '' %>>Pending</option>
+                <option value="Processing" <%=order.status==='Processing' ? 'selected' : '' %>>Processing</option>
+                <option value="Shipped" <%=order.status==='Shipped' ? 'selected' : '' %>>Shipped</option>
+                <option value="Delivered" <%=order.status==='Delivered' ? 'selected' : '' %>>Delivered</option>
+              </select>
+
+              <label for="expectedDelivery">Expected Delivery:</label>
+              <input type="date" name="expectedDelivery"
+                value="<%= order.expectedDelivery ? order.expectedDelivery.toISOString().split('T')[0] : '' %>">
+
+              <button type="submit">Update</button>
+            </form>
+          </div>
+          <% }) %>
+      </div>
+      <% } else { %>
+        <p style="display: flex; justify-content: center;">No orders yet!</p>
+        <% } %>
+  </div>
+</body>
+
+</html>

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <!-- <%- include('../partials/header') %> -->
+  <link rel="stylesheet" href="/css/medicine.css">
+  <title>My Orders - OshudhBondhu</title>
+</head>
+
+<body>
+  <nav class="navbar">
+    <div class="logo"><img src="/assets/images/ourLogo.jpg" alt="companyLogo" height="50px">
+      <div class="companyName">OshudhBondhu</div>
+    </div>
+
+    <ul class="nav-links">
+      <li><a href="/user/dashboard">Dashboard</a></li>
+      <li><a href="/user/medicine">Medicines</a></li>
+      <li><a href="/user/orders">My Orders</a></li>
+      <li><a href="/logout">Logout</a></li>
+    </ul>
+  </nav>
+ 
+  <div class="mainCont">
+    <h2>My Orders 📦</h2>
+
+    <% if (orders && orders.length> 0) { %>
+      <div class="orders-list medicine-list">
+        <% orders.forEach(order=> { %>
+          <div class="order-card medicine-card">
+            <% order.medicines.forEach(med=> { %>
+              <h3>
+                <%= med.medicine.name %>
+              </h3>
+              <p><strong>Quantity:</strong>
+                <%= med.quantity %>
+              </p>
+              <p><strong>Price:</strong> ₹<%= med.medicine.price %>
+              </p>
+              <% }); %>
+                <p><strong>Status:</strong>
+                  <%= order.status %>
+                </p>
+                <p><strong>Expected Delivery:</strong>
+                  <%= order.expectedDelivery ? order.expectedDelivery.toDateString() : 'To be updated' %>
+                </p>
+          </div>
+          <% }); %>
+      </div>
+      <% } else { %>
+        <p style="display: flex; justify-content: center;">You haven't placed any orders yet.</p>
+        <% } %>
+  </div>
+</body>
+
+</html>

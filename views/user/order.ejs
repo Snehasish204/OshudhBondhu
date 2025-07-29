@@ -1,0 +1,9 @@
+<h2>Order: <%= medicine.name %></h2>
+<p>Description: <%= medicine.description %></p>
+<p>Price: ₹<%= medicine.price %></p>
+<p>Available: <%= medicine.stock %></p>
+
+<form action="/order/<%= medicine._id %>" method="POST">
+  <input type="number" name="quantity" value="1" min="1" max="<%= medicine.stock %>" required />
+  <button type="submit">Place Order</button>
+</form>

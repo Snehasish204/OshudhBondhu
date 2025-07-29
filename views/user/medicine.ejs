@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <!-- <%- include('../partials/header') %> -->
+  <link rel="stylesheet" href="/css/medicine.css">
+  <title>Search Medicine - OshudhBondhu</title>
+</head>
+
+<body>
+  <nav class="navbar">
+    <div class="logo"><img src="/assets/images/ourLogo.jpg" alt="companyLogo" height="50px">
+      <div class="companyName">OshudhBondhu</div>
+    </div>
+
+    <ul class="nav-links">
+      <li><a href="/user/dashboard">Dashboard</a></li>
+      <li><a href="/user/medicine">Medicines</a></li>
+      <li><a href="/user/orders">My Orders</a></li>
+      <li><a href="/logout">Logout</a></li>
+    </ul>
+  </nav>
+  <div class="mainCont">
+    <h2>Search for Medicines 💊</h2>
+
+    <form class="search-form" method="GET" action="/user/medicine">
+      <input type="text" name="name" placeholder="Enter medicine name"
+        value="<%= typeof query !== 'undefined' ? query : '' %>" required />
+      <button type="submit">Search</button>
+    </form>
+
+    <% if (medicines && medicines.length> 0) { %>
+      <div class="medicine-list">
+        <% medicines.forEach(medicine=> { %>
+          <div class="medicine-card">
+            <h3>
+              <%= medicine.name %>
+            </h3>
+            <p><strong>Brand:</strong>
+              <%= medicine.brand %>
+            </p>
+            <p><strong>Price:</strong> ₹<%= medicine.price %>
+            </p>
+            <form action="/user/order/<%= medicine._id %>" method="POST">
+              <input type="hidden" name="medicineId" value="<%= medicine._id %>">
+              <button type="submit">Order</button>
+            </form>
+          </div>
+          <% }) %>
+      </div>
+      <% } else if (typeof query !=='undefined' ) { %>
+        <p>No medicines found for "<%= query %>"</p>
+        <% } %>
+  </div>
+</body>
+
+</html>

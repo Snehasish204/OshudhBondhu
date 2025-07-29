@@ -1,0 +1,20 @@
+<header>
+  <nav class="navbar">
+    <a href="/">OshudhBondhu</a>
+    <ul>
+      <% if (!user) { %>
+        <li><a href="/login">Login</a></li>
+        <li><a href="/register">Register</a></li>
+      <% } else if (user.role === 'user') { %>
+        <li><a href="/user/dashboard">Dashboard</a></li>
+        <li><a href="/user/medicines">Medicines</a></li>
+        <li><a href="/user/orders">My Orders</a></li>
+        <li><a href="/logout">Logout</a></li>
+      <% } else if (user.role === 'admin') { %>
+        <li><a href="/admin/dashboard">Dashboard</a></li>
+        <li><a href="/admin/orders">All Orders</a></li>
+        <li><a href="/logout">Logout</a></li>
+      <% } %>
+    </ul>
+  </nav>
+</header>

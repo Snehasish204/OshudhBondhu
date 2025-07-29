@@ -1,0 +1,46 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Poppins', sans-serif;
+  background-color: #f9f9f9;
+  color: #333;
+}
+
+h1, h2, h3 {
+  margin-bottom: 15px;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+input, button, select {
+  font-family: inherit;
+}
+
+.btn {
+  padding: 10px 20px;
+  background-color: #009688;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  text-align: center;
+  display: inline-block;
+}
+
+.btn:hover {
+  background-color: #00796b;
+}
+
+.error {
+  color: red;
+  font-size: 0.9em;
+  margin-top: 10px;
+  display: block;
+}

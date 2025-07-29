@@ -1,0 +1,178 @@
+* {
+  margin: 0;
+  padding: 0px;
+  box-sizing: border-box;
+}
+
+html,
+body {
+  overflow-x: hidden;
+  max-width: 100%;
+}
+
+
+.navbar {
+  background-color: #5AACA6;
+  color: white;
+  /* padding: 1rem 2rem; */
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-top-left-radius: 50px;
+  border-bottom-right-radius: 50px;
+  position: fixed;
+  width: 100%;
+  z-index: 12;
+}
+
+.logo {
+  display: flex;
+  padding: 0.5rem 1rem;
+  flex-direction: row;
+  gap: 5px;
+  padding-left: 40px;
+}
+
+.companyName {
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 1.5rem;
+  padding: 1rem 2rem;
+  padding-right: 40px;
+}
+
+.nav-links a {
+  color: white;
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.3s;
+}
+
+.nav-links a:hover {
+  color: #c5f1d3;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .nav-links {
+    flex-direction: column;
+    position: absolute;
+    top: 70px;
+    right: 0;
+    background-color: #0f9d58;
+    width: 200px;
+    display: none;
+    padding: 1rem;
+  }
+
+  .nav-links.show {
+    display: flex;
+  }
+
+  .menu-toggle {
+    display: block;
+    cursor: pointer;
+  }
+}
+/*main content styles */
+#heading{
+    display: flex;
+    justify-content: center;
+}
+.orders-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 20px;
+  margin-top: 30px;
+  padding: 0 20px;
+}
+
+.order-card {
+  background-color: #ffffff;
+  border-radius: 12px;
+  padding: 20px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  text-align: left;
+  transition: transform 0.3s ease;
+}
+
+.order-card:hover {
+  transform: translateY(-5px);
+}
+
+.order-card h3 {
+  color: #009961;
+  margin-bottom: 15px;
+  font-size: 1.2rem;
+}
+
+.order-card ul {
+  list-style-type: disc;
+  margin-left: 20px;
+  margin-bottom: 15px;
+  color: #444;
+}
+
+.order-card p {
+  margin: 6px 0;
+  font-size: 15px;
+}
+
+.update-form {
+  margin-top: 15px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.update-form label {
+  font-weight: 600;
+  margin-bottom: 4px;
+}
+
+.update-form select,
+.update-form input[type="date"] {
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  font-size: 15px;
+  width: 100%;
+  max-width: 300px;
+}
+
+.update-form button {
+  background-color: #5AACA6;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  font-size: 15px;
+  border-radius: 8px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  align-self: flex-start;
+}
+
+.update-form button:hover {
+  background-color: #F27E93;
+}
+
+@media (max-width: 768px) {
+  .update-form {
+    align-items: flex-start;
+  }
+
+  .update-form select,
+  .update-form input[type="date"] {
+    width: 100%;
+  }
+}
+.mainCont{
+    margin-top: 100px;
+    margin-bottom: 50px;
+}

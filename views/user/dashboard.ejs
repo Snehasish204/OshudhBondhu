@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <!-- <%- include('../partials/header') %> -->
+  <link rel="stylesheet" href="/css/userdash.css">
+  <title>User Dashboard - OshudhBondhu</title>
+</head>
+
+<body>
+  <nav class="navbar">
+    <div class="logo"><img src="/assets/images/ourLogo.jpg" alt="companyLogo" height="50px">
+      <div class="companyName">OshudhBondhu</div>
+    </div>
+
+    <ul class="nav-links">
+      <li><a href="/user/dashboard">Dashboard</a></li>
+      <li><a href="/user/medicine">Medicines</a></li>
+      <li><a href="/user/orders">My Orders</a></li>
+      <li><a href="/logout">Logout</a></li>
+    </ul>
+  </nav>
+  <div class="userSpace">
+  <header>
+    <h2>Welcome, <%= user.name %> 👋</h2>
+  </header>
+
+  <div class="user-nav">
+    <a href="/user/medicine">Search Medicine</a>
+    <a href="/user/orders">My Orders</a>
+    <a href="/logout">Logout</a>
+  </div>
+</div>
+</body>
+
+</html>
